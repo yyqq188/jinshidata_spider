@@ -91,5 +91,3 @@ ITEM_PIPELINES = {
 
 #======================================================================================================
 
-MONGO_URI = "mongodb+srv://83791248:NEHWZ2qd6txSSkQW@cluster0.su7kirz.mongodb.net/?retryWrites=true&w=majority"
-MONGO_DATABASE = "scrapy_test_db"

@@ -5,7 +5,7 @@
 """
 from bloomfilter import BloomFilter
 import pymongo
-from jinshidata.settings import MONGO_URI,MONGO_DATABASE
+from jinshidata.settings_custom import MONGO_URI,MONGO_DATABASE
 
 
 class BloomFilterGen:

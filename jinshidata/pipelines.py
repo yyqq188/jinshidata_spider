@@ -8,6 +8,7 @@
 from itemadapter import ItemAdapter
 from jinshidata.items import EconomicsItem,EventItem,HolidayItem
 import pymongo
+from jinshidata.settings_custom import MONGO_URI,MONGO_DATABASE
 
 class JinshidataSpiderPipeline:
     
@@ -15,16 +16,17 @@ class JinshidataSpiderPipeline:
     collection_name_Economics = "scrapy_items_Economics"
     collection_name_Event = "scrapy_items_Event"
 
-    def __init__(self,mongo_uri,mongo_db):
-        self.mongo_uri = mongo_uri
-        self.mongo_db = mongo_db
+    # def __init__(self,mongo_uri,mongo_db):
+    def __init__(self):
+        self.mongo_uri = MONGO_URI
+        self.mongo_db = MONGO_DATABASE
 
-    @classmethod
-    def from_crawler(cls, crawler):
-        return cls(
-            mongo_uri=crawler.settings.get("MONGO_URI"),
-            mongo_db=crawler.settings.get("MONGO_DATABASE", "items"),
-        )
+    # @classmethod
+    # def from_crawler(cls, crawler):
+    #     return cls(
+    #         mongo_uri=crawler.settings.get("MONGO_URI"),
+    #         mongo_db=crawler.settings.get("MONGO_DATABASE", "items"),
+    #     )
 
     def open_spider(self, spider):
         self.client = pymongo.MongoClient(self.mongo_uri)
