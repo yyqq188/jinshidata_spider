@@ -8,7 +8,7 @@
 from itemadapter import ItemAdapter
 from jinshidata.items import EconomicsItem,EventItem,HolidayItem
 import pymongo
-from jinshidata.settings_custom import MONGO_URI,MONGO_DATABASE
+import os
 
 class JinshidataSpiderPipeline:
     
@@ -18,8 +18,8 @@ class JinshidataSpiderPipeline:
 
     # def __init__(self,mongo_uri,mongo_db):
     def __init__(self):
-        self.mongo_uri = MONGO_URI
-        self.mongo_db = MONGO_DATABASE
+        self.mongo_uri = os.getenv("MONGO_URI")
+        self.mongo_db = os.getenv("MONGO_DATABASE")
 
     # @classmethod
     # def from_crawler(cls, crawler):

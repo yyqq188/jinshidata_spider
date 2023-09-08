@@ -85,6 +85,7 @@ class JinshidataDownloaderMiddleware:
         #   installed downloader middleware will be called
         
         if request.url not in self.bloomfilter:
+            request.meta['proxy'] = "http://127.0.0.1:8123"
             return None
         else:
             raise IgnoreRequest("已经爬取过了")

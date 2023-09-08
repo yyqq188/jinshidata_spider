@@ -5,8 +5,7 @@
 """
 from bloomfilter import BloomFilter
 import pymongo
-from jinshidata.settings_custom import MONGO_URI,MONGO_DATABASE
-
+import os
 
 class BloomFilterGen:
     collection_name = "scrapy_items"
@@ -15,8 +14,8 @@ class BloomFilterGen:
 
     def gen_bloomfilter(self):
 
-        client = pymongo.MongoClient(MONGO_URI)
-        db = client[MONGO_DATABASE]
+        client = pymongo.MongoClient(os.getenv("MONGO_URI"))
+        db = client[os.getenv("MONGO_DATABASE")]
         table1 = db[self.collection_name].find({}, {"url": 1})
         table2 = db[self.collection_name_Economics].find({}, {"url": 1})
         table3 = db[self.collection_name_Event].find({}, {"url": 1})
