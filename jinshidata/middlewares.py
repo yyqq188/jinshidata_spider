@@ -10,7 +10,7 @@ from itemadapter import is_item, ItemAdapter
 
 from jinshidata.bloomfilter_gen import BloomFilterGen
 from scrapy.exceptions import IgnoreRequest
-import change_ip
+from jinshidata import change_ip
 
 class JinshidataSpiderMiddleware:
     # Not all methods need to be defined. If a method is not defined,
