@@ -13,8 +13,8 @@ class RilispiderSpider(scrapy.Spider):
     start_urls = []
 
     def start_requests(self):
-        begin = datetime.date(2023, 1, 1)
-        end = datetime.date(2023, 9, 6)
+        begin = datetime.date(2022, 1, 1)
+        end = datetime.date(2022, 12, 31)
         delta = datetime.timedelta(1)
         tmp = begin
         while tmp <= end:
