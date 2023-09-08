@@ -33,7 +33,7 @@ if __name__ == '__main__':
     from dotenv import load_dotenv
     from pathlib import Path
     print(Path(Path.cwd(),".env"))
-    load_dotenv(dotenv_path=Path(Path.cwd(),".env"),override=True)
+    load_dotenv(dotenv_path=Path(Path.home(),"env_config/.env_jinshidata"),override=True)
 
     from scrapy import cmdline
     cmdline.execute("scrapy crawl rilispider".split())
