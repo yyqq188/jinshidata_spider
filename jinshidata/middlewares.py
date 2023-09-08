@@ -10,6 +10,7 @@ from itemadapter import is_item, ItemAdapter
 
 from jinshidata.bloomfilter_gen import BloomFilterGen
 from scrapy.exceptions import IgnoreRequest
+import change_ip
 
 class JinshidataSpiderMiddleware:
     # Not all methods need to be defined. If a method is not defined,
@@ -98,6 +99,8 @@ class JinshidataDownloaderMiddleware:
         # - return a Response object
         # - return a Request object
         # - or raise IgnoreRequest
+        if response.body is None :
+            change_ip.change_ip()
         return response
 
     def process_exception(self, request, exception, spider):
